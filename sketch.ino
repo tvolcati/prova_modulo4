@@ -34,48 +34,6 @@ void setup() {
   digitalWrite(led_red, LOW);
 
   Serial.begin(9600); // Configure bound rate as 9600
-
-  // WiFi.begin("Wokwi-GUEST", ""); // Connect Wifi with "Wokwi-GUEST" SSID
-
-  // while (WiFi.status() != WL_CONNECT_FAILED) {
-  //   delay(100);
-  //   Serial.print(".");
-  // }
-  // Serial.println("Connected succesfully to Wifi"); // When wifi is not "not connectes" anymore, this message is gonna be printed to show wifi is ok
-
-  // // Verify button state
-  // buttonState = digitalRead(buttonPin);
-  // if (buttonState == HIGH) {
-  //   Serial.println("Button pressed!");
-  // } else {
-  //   Serial.println("Button not pressed");
-  // }
-
-  // if(WiFi.status() == WL_CONNECTED){ // If ESP32 is connected with internet
-  //   HTTPClient http;
-
-  //   String serverPath = "http://www.google.com.br/"; // Endpoint of HTTP request
-
-  //   http.begin(serverPath.c_str());
-
-  //   int httpResponseCode = http.GET(); // print result of request
-
-  //   if (httpResponseCode>0) {
-  //     Serial.print("HTTP Response code: ");
-  //     Serial.println(httpResponseCode);
-  //     String payload = http.getString();
-  //     Serial.println(payload);
-  //     }
-  //   else {
-  //     Serial.print("Error code: ");
-  //     Serial.println(httpResponseCode);
-  //     }
-  //     http.end();
-  //   }
-
-  // else {
-  //   Serial.println("WiFi Disconnected");
-  // }
 }
 
 void loop() {
@@ -133,7 +91,7 @@ void loop() {
           if(push_count >= 3){
               WiFi.begin("Wokwi-GUEST", "", 6); // Connect Wifi with "Wokwi-GUEST" SSID
 
-              while (WiFi.status() != WL_CONNECT_FAILED) {
+              while (WiFi.status() != WL_CONNECTED) {
                 delay(100);
                 Serial.print(".");
               }
